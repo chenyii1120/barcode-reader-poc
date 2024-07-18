@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+    <title>Barcode Scanner</title>
+</head>
+<body>
+    <h1>Barcode Scanner</h1>
+    <button id="startButton">Start Camera</button>
+    <video id="video" width="300" height="200" style="border: 1px solid black"></video>
+    <p>Status: <span id="status">Waiting</span></p>
+    <p>Scanned Barcode: <span id="barcodeResult"></span></p>
+    <p>Current Module: ZXing-js</p>
+    <p>script ver: <span id="script_ver"></span></p>
+    <!-- 引入 ZXing 庫 -->
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <!-- 引入你的自定義腳本 -->
+    <script src="app.js?v=11" defer></script>
+</body>
+</html>
