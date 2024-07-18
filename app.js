@@ -1,19 +1,13 @@
-var firstDeviceId = null;
+var firstDeviceId;
 document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('status').textContent = 'OK';
-    document.getElementById('script_ver').textContent = '11';
+    document.getElementById('script_ver').textContent = '13';
 
     const codeReader = new ZXing.BrowserMultiFormatReader();
-    const videoElement = document.getElementById('video');
 
     codeReader.listVideoInputDevices()
     .then(videoInputDevices => {
-        if (firstDeviceId == null){
-            firstDeviceId = videoInputDevices[0].deviceId;
-        }
-        // const firstDeviceId = videoInputDevices[0].deviceId;
-        document.getElementById('cam_id').textContent = firstDeviceId;
-        document.getElementById('cam_id_list').textContent = videoInputDevices;
+        firstDeviceId = videoInputDevices[0].deviceId;
     });
 
     document.getElementById('startButton').addEventListener('click', () => {
@@ -34,9 +28,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (err && !(err instanceof ZXing.NotFoundException)) {
                 console.error(err);
                 document.getElementById('barcodeResult').textContent = err;
-                }
+            }
         })
     })
-            .catch(err => console.error(err));
 });
 
